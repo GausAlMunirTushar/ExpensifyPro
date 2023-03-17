@@ -5,10 +5,10 @@ const { login, register } = require('../controllers/userController');
 const userRoute = express.Router();
 
 // routes 
-//POST || LOGIN
+//POST || LOGIN USER
 userRoute.post('/login', login);
 
-//POST || REGISTER
+//POST || REGISTER USER
 userRoute.post('/register', register)
 
 module.exports = userRoute;

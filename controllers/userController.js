@@ -23,8 +23,9 @@ const login = async (req, res) => {
 
 // Register Controller
 const register = async (req, res) => {
+    const reqBody = req.body
     try {
-        const newUser = new userModel(req.body);
+        const newUser = new userModel(reqBody);
         await newUser.save();
         res.status(201).json({
             success: true,
@@ -33,8 +34,8 @@ const register = async (req, res) => {
     } catch (error) {
         res.status(400).json({
             success: false,
-            error
         })
+        console.log(error)
     }
 }
 

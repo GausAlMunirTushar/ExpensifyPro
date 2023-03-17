@@ -20,10 +20,6 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 //User Routes
-app.use('api/v1/user/', userRoute)
-// Routes
-app.get('/', (req, res)=>{
-    res.send(`<h1>Hello, Expense Application</h1>`)
-})
+app.use('/users', userRoute)
 
 module.exports = app;
