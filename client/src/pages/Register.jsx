@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Form, Input, message} from 'antd'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -19,11 +19,17 @@ const Register = () => {
             message.error('something went wrong')
         }
     }
+    //prevent for login user
+    useEffect(() => {
+        if(localStorage.getItem('user')){
+            nagivate('/')
+        }
+    }, [nagivate]);
   return (
     <>
         <div className="register">
             {loading && <Spinner/>}
-            <Form layout='vertical' onFinish={submitHandler}>
+            <Form layout='vertical' onFinish={submitHandler} autoComplete=''>
                 <h1 className='text-center'>Register</h1>
                 <Form.Item label='Name' name='name'>
                     <Input type='text'/>

@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Form, Input, message} from 'antd'
-import { Link, useNavigate} from 'react-router-dom'
+import { Link, useFetcher, useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import Spinner from '../components/Spinner'
 const Login = () => {
@@ -20,6 +20,13 @@ const Login = () => {
             message.error('something went wrong')
         }
     }
+      //prevent for login user
+   useEffect(() => {
+    if(localStorage.getItem('user')){
+        navigate('/')
+    }
+   }, [navigate]);
+
   return (
     <>
         <div className="register">
