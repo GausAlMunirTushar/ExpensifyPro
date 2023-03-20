@@ -99,7 +99,6 @@ const HomePage = () => {
                   <Select.Option value="income">Income</Select.Option>
                   <Select.Option value="expense">Expense</Select.Option>
                 </Select>
-                {frequency === 'custom' && <RangePicker value={selectedDate} onChange={(values) => {values}}/>}
               </div>
               <div>
                 <button className='btn btn-primary' onClick={() => setShowModal(true)}>Add New</button>
